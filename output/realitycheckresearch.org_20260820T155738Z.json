@@ -1,0 +1,146 @@
+{
+  "target": {
+    "domain": "realitycheckresearch.org",
+    "base_url": "https://realitycheckresearch.org"
+  },
+  "recon": {
+    "dns": {
+      "A": [
+        "141.193.213.10",
+        "141.193.213.11"
+      ],
+      "AAAA": [],
+      "MX": [
+        "1 aspmx.l.google.com.",
+        "10 alt3.aspmx.l.google.com.",
+        "10 alt4.aspmx.l.google.com.",
+        "5 alt1.aspmx.l.google.com.",
+        "5 alt2.aspmx.l.google.com."
+      ],
+      "NS": [
+        "ns09.domaincontrol.com.",
+        "ns10.domaincontrol.com."
+      ],
+      "TXT": [
+        "google-site-verification=hrCxoFgLJfqpMlAzVegQ2S0UBLeyYsSKeXoHcUkGIGk",
+        "v=spf1 include:dc-aa8e722993._spfm.realitycheckresearch.org ~all"
+      ],
+      "SOA": [
+        "ns09.domaincontrol.com. dns.jomax.net. 2024021102 28800 7200 604800 600"
+      ],
+      "CAA": [],
+      "_spf_present": true,
+      "DMARC": [
+        "v=DMARC1; p=none;"
+      ],
+      "_dmarc_policy": "none",
+      "_dmarc_has_rua": false
+    },
+    "whois": {
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2022-07-30 22:15:34+00:00",
+      "expiration_date": "2027-07-30 22:15:34+00:00",
+      "updated_date": "2026-08-12 04:22:48+00:00",
+      "name_servers": [
+        "ns09.domaincontrol.com",
+        "ns10.domaincontrol.com"
+      ],
+      "status": [
+        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+        "clientRenewProhibited https://icann.org/epp#clientRenewProhibited",
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+      ],
+      "emails": "abuse@godaddy.com",
+      "org": null,
+      "error": null
+    },
+    "subdomains": {
+      "source": "crt.sh (certificate transparency)",
+      "count": 0,
+      "subdomains": [],
+      "error": ""
+    },
+    "tech_fingerprint": {
+      "headers_of_interest": {
+        "server_banner": "cloudflare"
+      },
+      "detected": [],
+      "cookies": [
+        "__cf_bm"
+      ],
+      "error": null,
+      "final_url": "https://realitycheckresearch.org",
+      "status": 403
+    },
+    "robots_sitemap": {
+      "robots_txt": {
+        "found": true,
+        "disallowed_paths": [
+          "/wp-admin/",
+          "/wp-content/uploads/2026/05/Jewishvirtuallibrary-sitemap.pdf"
+        ],
+        "sitemaps": []
+      },
+      "sitemap_xml": {
+        "found": true,
+        "url_count": 3,
+        "sample_urls": [
+          "https://realitycheckresearch.org/page-sitemap.xml",
+          "https://realitycheckresearch.org/our_team-sitemap.xml",
+          "https://realitycheckresearch.org/our_team_taxonomies-sitemap.xml"
+        ]
+      }
+    }
+  },
+  "discovery": {
+    "wordlist_used": "wordlists/quickhits.txt",
+    "total_paths_tested": 5140,
+    "elapsed_seconds": 128.6,
+    "wildcard_baseline": {
+      "status": 403,
+      "content_length": null
+    },
+    "filtered_as_wildcard_noise": 5134,
+    "findings_count": 0,
+    "findings": []
+  },
+  "vulnscan": {
+    "security_headers": {
+      "present": {
+        "Content-Security-Policy": "default-src 'none'; script-src 'nonce-vreHvHLVQuv9joXZyigEyQ' 'unsafe-eval' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'unsafe-inline'; img-src 'self' https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com blob:; child-src 'self' https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri 'self'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "same-origin",
+        "Permissions-Policy": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*"
+      },
+      "missing": [
+        {
+          "header": "Strict-Transport-Security",
+          "why_it_matters": "Protects against SSL-stripping / downgrade attacks."
+        }
+      ],
+      "error": null,
+      "insecure_cookies": []
+    },
+    "tls": {
+      "error": null,
+      "protocol": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384",
+      "expires": "2026-09-28T12:32:55",
+      "days_until_expiry": 38,
+      "expiry_warning": false,
+      "issuer": "Let's Encrypt",
+      "subject_alt_names": [
+        "realitycheckresearch.org"
+      ],
+      "weak_protocol": false
+    },
+    "sensitive_files": {
+      "wordlist_used": "wordlists/sensitive_files.txt",
+      "total_paths_tested": 50,
+      "exposed_count": 0,
+      "exposed_files": []
+    }
+  }
+}

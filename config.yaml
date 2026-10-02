@@ -1,0 +1,94 @@
+# =========================================================================
+# Website External-Exposure Assessment Tool - Configuration
+#
+# AUTHORIZED USE ONLY. Only point this at a domain you own or have
+# explicit written authorization to test. See README.md.
+# =========================================================================
+
+target:
+  domain: "hindrajabfoundation.org"        # apex domain, no scheme
+  base_url: "https://www.hindrajabfoundation.org"  # scheme + host to run HTTP checks against
+
+http:
+  # A generic scripted-client UA (aiohttp's default, python-requests, etc.)
+  # is one of the signals WAFs/bot-management (Cloudflare, etc.) use to
+  # blanket-block scanners before they see any real content. A normal
+  # browser UA gets treated like normal traffic. This is still every
+  # request going through the same rate-limited, non-evasive client - it
+  # just stops announcing itself as a bot to a filter that isn't the
+  # actual security control you're trying to test.
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+
+recon:
+  enabled: true
+  crtsh_subdomains: true       # passive subdomain enum via certificate transparency
+  dns_records: true
+  whois_lookup: true
+  robots_sitemap: true
+  tech_fingerprint: true
+
+discovery:
+  enabled: true
+  # Thorough pass: raft_small_directories.txt (~20k) catches directories
+  # quickhits.txt's smaller curated list can miss. wordlists/quickhits.txt
+  # (~2.5k) or wordlists/content_discovery.txt (common.txt, ~4.7k) are
+  # faster if you want a quick pass instead - just swap this back.
+  wordlist: "wordlists/raft_small_directories.txt"
+  # Fewer extensions = fewer total requests (paths tested = words x extensions).
+  # Add more back in (".bak", ".zip", ".json", etc) for a deeper sweep.
+  extensions: ["", ".php"]
+  concurrency: 30                # requests in flight at once
+  requests_per_second: 50        # client-side rate limit (still gentle - see README)
+  timeout_seconds: 8
+  status_codes_of_interest: [200, 201, 204, 301, 302, 307, 401, 403]
+
+  # If content discovery finds a directory the server distinguishes from
+  # its normal response (401/403, not just wildcard noise), automatically
+  # follow up with a focused check for guessable backup filenames inside
+  # it (dated archives, common backup-tool naming, site-specific tokens).
+  # Does not attempt to bypass the 403 itself - only checks whether
+  # specific files are directly reachable despite it. See
+  # discovery/directory_deepdive.py. With the defaults below this runs
+  # ~50k candidate filenames per restricted directory found - a real "we
+  # tried hard" pass, not a quick check. Trim date_days_back/months_back/
+  # extensions if that's more than you want to wait on.
+  deep_dive:
+    enabled: true
+    basenames_wordlist: "wordlists/backup_basenames.txt"
+    date_days_back: 21           # daily-pattern filenames, last N days
+    months_back: 6               # monthly-pattern filenames, last N months (weekly/monthly backup jobs)
+    extensions: [".zip", ".sql", ".sql.gz", ".tar.gz", ".bak", ".7z", ".old"]
+    concurrency: 30
+    requests_per_second: 50
+    timeout_seconds: 8
+
+vulnscan:
+  enabled: true
+  check_security_headers: true
+  check_tls: true
+  check_sensitive_files: true
+  sensitive_files_wordlist: "wordlists/sensitive_files.txt"
+  # Standard HTTP-method/WebDAV misconfiguration audit (OWASP "Test HTTP
+  # Methods") - checks what the server advertises/responds to, does not
+  # attempt to use PUT/DELETE or bypass any access control.
+  check_http_methods: true
+  # Best-effort detection of the IIS short-filename ("tilde") disclosure
+  # signature. Cheap (2 requests), safe to leave on even for non-IIS
+  # targets - it'll just come back inconclusive.
+  check_iis_shortname: true
+  # Cross-references software/versions found during recon (Server header,
+  # meta generator tag, script ?ver= tags, WordPress readme.html) against
+  # the public NVD CVE database. Queries NVD only - not the target - and
+  # is skipped automatically if no versions were identified. Keyword
+  # matches, not confirmed/authoritative CPE-range matches - always
+  # verify a hit against the linked CVE before treating it as certain.
+  check_known_cves: true
+  cve_lookup:
+    api_key: null                 # optional: free key from nvd.nist.gov/developers/request-an-api-key raises the rate limit from 5/30s to 50/30s
+    max_products: 8                # cap how many distinct (product, version) pairs get queried
+    max_results_per_product: 5     # cap CVEs returned per product
+    # delay_seconds: 6.5           # override NVD request spacing; defaults to 6.5s (no key) / 0.7s (with key)
+
+output:
+  directory: "output"
+  formats: ["json", "html"]

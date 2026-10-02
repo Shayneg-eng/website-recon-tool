@@ -1,0 +1,440 @@
+{
+  "target": {
+    "domain": "sis3.macnet.ca",
+    "base_url": "https://sis3.macnet.ca"
+  },
+  "recon": {
+    "dns": {
+      "A": [
+        "72.138.31.232"
+      ],
+      "AAAA": [],
+      "MX": [],
+      "NS": [],
+      "TXT": [],
+      "SOA": [],
+      "CAA": [],
+      "_spf_present": false,
+      "DMARC": [],
+      "_dmarc_policy": null,
+      "_dmarc_has_rua": false
+    },
+    "whois": {
+      "registrar": "Rebel.ca Corp.",
+      "creation_date": "2001-01-06 22:13:50+00:00",
+      "expiration_date": "2027-01-06 05:00:00+00:00",
+      "updated_date": "2026-03-04 21:58:44+00:00",
+      "name_servers": [
+        "dns.rebel.ca",
+        "dns2.rebel.ca"
+      ],
+      "status": [
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+      ],
+      "emails": [
+        "registryrelations@rebel.com",
+        "it@macnet.ca",
+        "abuse@rebel.com"
+      ],
+      "org": null,
+      "error": null
+    },
+    "subdomains": {
+      "source": "crt.sh (certificate transparency)",
+      "count": 0,
+      "subdomains": [],
+      "error": "crt.sh returned HTTP 404"
+    },
+    "tech_fingerprint": {
+      "headers_of_interest": {
+        "server_banner": "Microsoft-IIS/10.0"
+      },
+      "detected": [],
+      "cookies": [],
+      "error": null,
+      "final_url": "https://sis3.macnet.ca",
+      "status": 200
+    },
+    "robots_sitemap": {
+      "robots_txt": {
+        "found": true,
+        "disallowed_paths": [],
+        "sitemaps": []
+      },
+      "sitemap_xml": {
+        "found": true,
+        "url_count": 0,
+        "sample_urls": []
+      }
+    }
+  },
+  "discovery": {
+    "wordlist_used": "wordlists/quickhits.txt",
+    "total_paths_tested": 5140,
+    "elapsed_seconds": 128.6,
+    "wildcard_baseline": {
+      "status": 200,
+      "content_length": 9194
+    },
+    "filtered_as_wildcard_noise": 5133,
+    "findings_count": 3,
+    "findings": [
+      {
+        "url": "https://sis3.macnet.ca/Backups/",
+        "status": 403,
+        "content_length": 1233,
+        "redirect_to": null
+      },
+      {
+        "url": "https://sis3.macnet.ca/backups",
+        "status": 301,
+        "content_length": 154,
+        "redirect_to": "https://sis3.macnet.ca/backups/"
+      },
+      {
+        "url": "https://sis3.macnet.ca/backups/",
+        "status": 403,
+        "content_length": 1233,
+        "redirect_to": null
+      }
+    ]
+  },
+  "vulnscan": {
+    "security_headers": {
+      "present": {
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "no-referrer-when-downgrade"
+      },
+      "missing": [
+        {
+          "header": "Content-Security-Policy",
+          "why_it_matters": "Mitigates XSS and data-injection attacks."
+        },
+        {
+          "header": "Permissions-Policy",
+          "why_it_matters": "Restricts access to browser features/APIs."
+        }
+      ],
+      "error": null,
+      "insecure_cookies": []
+    },
+    "tls": {
+      "error": null,
+      "protocol": "TLSv1.3",
+      "cipher": "TLS_AES_128_GCM_SHA256",
+      "expires": "2026-10-23T23:59:59",
+      "days_until_expiry": 64,
+      "expiry_warning": false,
+      "issuer": "DigiCert Inc",
+      "subject_alt_names": [
+        "*.macnet.ca",
+        "macnet.ca"
+      ],
+      "weak_protocol": false
+    },
+    "sensitive_files": {
+      "wordlist_used": "wordlists/sensitive_files.txt",
+      "total_paths_tested": 50,
+      "exposed_count": 49,
+      "exposed_files": [
+        {
+          "url": "https://sis3.macnet.ca/.DS_Store",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.aws/credentials",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.env",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.env.backup",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.env.local",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.env.production",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.git/HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.git/config",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.git/logs/HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.htaccess",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.htpasswd",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.svn/entries",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/.well-known/security.txt",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/Dockerfile",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/access_log",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/backup.sql.gz",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/backup.tar.gz",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/backup.zip",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/composer.json",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/composer.lock",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/config.php.bak",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/config.php.old",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/config.yaml",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/config.yml",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/credentials.json",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/database.sql",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/database.yml",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/db.sql",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/db_backup.sql",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/debug.php",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/docker-compose.yml",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/dump.sql",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/error_log",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/id_rsa",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/id_rsa.pub",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/info.php",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/nohup.out",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/package-lock.json",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/package.json",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/phpinfo.php",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/secrets.json",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/secrets.yml",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/server-status",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/site-backup.zip",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/test.php",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/wp-config.php",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/wp-config.php.bak",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/wp-config.php.save",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        },
+        {
+          "url": "https://sis3.macnet.ca/www.zip",
+          "status": 200,
+          "content_type": "text/html",
+          "snippet_preview": "<!doctype html>\r\n<html lang=\"en\" data-beasties-container>\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>ParentPortal"
+        }
+      ]
+    }
+  }
+}

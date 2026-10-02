@@ -1,0 +1,6 @@
+aiohttp>=3.9
+dnspython>=2.6
+python-whois>=0.9.4
+cryptography>=42.0
+PyYAML>=6.0
+rich>=13.7

@@ -1,0 +1,195 @@
+{
+  "target": {
+    "domain": "sis3.macnet.ca",
+    "base_url": "https://sis3.macnet.ca"
+  },
+  "recon": {
+    "dns": {
+      "A": [
+        "72.138.31.232"
+      ],
+      "AAAA": [],
+      "MX": [],
+      "NS": [],
+      "TXT": [],
+      "SOA": [],
+      "CAA": [],
+      "_spf_present": false,
+      "DMARC": [],
+      "_dmarc_policy": null,
+      "_dmarc_has_rua": false
+    },
+    "whois": {
+      "registrar": "Rebel.ca Corp.",
+      "creation_date": "2001-01-06 22:13:50+00:00",
+      "expiration_date": "2027-01-06 05:00:00+00:00",
+      "updated_date": "2026-03-04 21:58:44+00:00",
+      "name_servers": [
+        "dns.rebel.ca",
+        "dns2.rebel.ca"
+      ],
+      "status": [
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+      ],
+      "emails": [
+        "abuse@rebel.com",
+        "it@macnet.ca"
+      ],
+      "org": null,
+      "error": null
+    },
+    "subdomains": {
+      "source": "crt.sh (certificate transparency)",
+      "count": 0,
+      "subdomains": [],
+      "error": "crt.sh returned HTTP 502"
+    },
+    "tech_fingerprint": {
+      "headers_of_interest": {
+        "server_banner": "Microsoft-IIS/10.0"
+      },
+      "detected": [],
+      "cookies": [],
+      "error": null,
+      "final_url": "https://sis3.macnet.ca",
+      "status": 200
+    },
+    "robots_sitemap": {
+      "robots_txt": {
+        "found": true,
+        "disallowed_paths": [],
+        "sitemaps": []
+      },
+      "sitemap_xml": {
+        "found": true,
+        "url_count": 0,
+        "sample_urls": []
+      }
+    }
+  },
+  "discovery": {
+    "wordlist_used": "wordlists/raft_small_directories.txt",
+    "total_paths_tested": 40230,
+    "elapsed_seconds": 805.2,
+    "wildcard_baseline": {
+      "status": 200,
+      "content_length": 9194
+    },
+    "filtered_as_wildcard_noise": 40225,
+    "findings_count": 5,
+    "findings": [
+      {
+        "url": "https://sis3.macnet.ca/Assets",
+        "status": 301,
+        "content_length": 153,
+        "redirect_to": "https://sis3.macnet.ca/Assets/"
+      },
+      {
+        "url": "https://sis3.macnet.ca/BACKUPS",
+        "status": 301,
+        "content_length": 154,
+        "redirect_to": "https://sis3.macnet.ca/BACKUPS/"
+      },
+      {
+        "url": "https://sis3.macnet.ca/Backups",
+        "status": 301,
+        "content_length": 154,
+        "redirect_to": "https://sis3.macnet.ca/Backups/"
+      },
+      {
+        "url": "https://sis3.macnet.ca/assets",
+        "status": 301,
+        "content_length": 153,
+        "redirect_to": "https://sis3.macnet.ca/assets/"
+      },
+      {
+        "url": "https://sis3.macnet.ca/backups",
+        "status": 301,
+        "content_length": 154,
+        "redirect_to": "https://sis3.macnet.ca/backups/"
+      }
+    ]
+  },
+  "vulnscan": {
+    "security_headers": {
+      "present": {
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "no-referrer-when-downgrade"
+      },
+      "missing": [
+        {
+          "header": "Content-Security-Policy",
+          "why_it_matters": "Mitigates XSS and data-injection attacks."
+        },
+        {
+          "header": "Permissions-Policy",
+          "why_it_matters": "Restricts access to browser features/APIs."
+        }
+      ],
+      "error": null,
+      "insecure_cookies": []
+    },
+    "tls": {
+      "error": null,
+      "protocol": "TLSv1.3",
+      "cipher": "TLS_AES_128_GCM_SHA256",
+      "expires": "2026-10-23T23:59:59",
+      "days_until_expiry": 64,
+      "expiry_warning": false,
+      "issuer": "DigiCert Inc",
+      "subject_alt_names": [
+        "*.macnet.ca",
+        "macnet.ca"
+      ],
+      "weak_protocol": false
+    },
+    "http_methods": {
+      "checked": [
+        {
+          "target": "https://sis3.macnet.ca",
+          "allowed_methods": [
+            "OPTIONS",
+            "TRACE",
+            "GET",
+            "HEAD",
+            "POST"
+          ],
+          "dangerous_methods": [
+            "TRACE"
+          ],
+          "options_error": null,
+          "webdav_listing_status": 405,
+          "webdav_enabled": false,
+          "propfind_error": null,
+          "trace_echo": {
+            "tested": true,
+            "status": 501,
+            "echoed_marker": false,
+            "error": null
+          }
+        }
+      ]
+    },
+    "iis_shortname": {
+      "tested": true,
+      "vulnerable_pattern_status": 200,
+      "control_pattern_status": 200,
+      "signature_observed": false,
+      "error": null,
+      "note": "Heuristic only - a positive signal needs manual confirmation with a dedicated IIS shortname tool. This module does not reconstruct actual filenames."
+    },
+    "sensitive_files": {
+      "wordlist_used": "wordlists/sensitive_files.txt",
+      "total_paths_tested": 50,
+      "wildcard_baseline": {
+        "status": 200,
+        "content_length": 9194
+      },
+      "exposed_count": 0,
+      "exposed_files": []
+    }
+  }
+}

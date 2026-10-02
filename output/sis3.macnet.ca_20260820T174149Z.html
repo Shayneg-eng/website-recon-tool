@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>External Exposure Report - sis3.macnet.ca</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #0f172a; }
+  h1 { margin-bottom: 0.2rem; }
+  .meta { color: #64748b; margin-bottom: 1.5rem; }
+  .card { background: white; border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  th { color: #475569; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .badge { display: inline-block; color: white; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+  .summary-bar { margin: 0.75rem 0 0; }
+  code { background: #f1f5f9; padding: 0.1rem 0.35rem; border-radius: 4px; }
+  .disclaimer { font-size: 0.85rem; color: #64748b; border-left: 3px solid #cbd5e1; padding-left: 0.75rem; }
+</style>
+</head>
+<body>
+  <h1>External Exposure Report</h1>
+  <div class="meta">Target: <code>sis3.macnet.ca</code> &middot; Generated: 20260820T174149Z UTC</div>
+
+  <div class="card">
+    <p class="disclaimer">This report reflects what a passive/light-touch outside observer could see about
+    this domain at the time of the scan. It is not exhaustive and is not a substitute for a professional
+    penetration test. Run only against domains you own or are authorized to test.</p>
+  </div>
+
+  <div class="card">
+    <h2>Findings Summary (5)</h2>
+    <div class="summary-bar"><span class="badge" style="background:#a16207">medium: 5</span></div>
+    <table>
+      <thead><tr><th>Severity</th><th>Area</th><th>Finding</th><th>Detail</th></tr></thead>
+      <tbody><tr>
+            <td><span class="badge" style="background:#a16207">MEDIUM</span></td>
+            <td>Security Headers</td>
+            <td>Missing Content-Security-Policy</td>
+            <td>Mitigates XSS and data-injection attacks.</td>
+        </tr>
+<tr>
+            <td><span class="badge" style="background:#a16207">MEDIUM</span></td>
+            <td>Security Headers</td>
+            <td>Missing Permissions-Policy</td>
+            <td>Restricts access to browser features/APIs.</td>
+        </tr>
+<tr>
+            <td><span class="badge" style="background:#a16207">MEDIUM</span></td>
+            <td>HTTP Methods</td>
+            <td>https://sis3.macnet.ca advertises TRACE (echo behavior not confirmed)</td>
+            <td>TRACE is listed in the server&#x27;s Allow header, but a probe request&#x27;s marker wasn&#x27;t reflected back, so the classic Cross-Site Tracing precondition isn&#x27;t confirmed here (a proxy may be stripping the echo, or the handler may not reflect the body the way older TRACE implementations do). Still worth disabling as defense in depth.</td>
+        </tr>
+<tr>
+            <td><span class="badge" style="background:#a16207">MEDIUM</span></td>
+            <td>Email/DNS</td>
+            <td>No SPF record found</td>
+            <td>Without SPF, attackers can more easily spoof email from your domain.</td>
+        </tr>
+<tr>
+            <td><span class="badge" style="background:#a16207">MEDIUM</span></td>
+            <td>Email/DNS</td>
+            <td>No DMARC record found</td>
+            <td>DMARC tells receiving mail servers what to do with spoofed mail from your domain.</td>
+        </tr></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Subdomains Discovered (0)</h2>
+    <ul><li><em>none found</em></li></ul>
+  </div>
+
+  <div class="card">
+    <h2>Content Discovery</h2>
+    <p>5 interesting paths found out of 40230 tested
+    in 805.2s.</p>
+    
+  </div>
+
+  <div class="card">
+    <h2>Raw Data</h2>
+    <p>Full machine-readable results are in the accompanying JSON file.</p>
+  </div>
+</body>
+</html>

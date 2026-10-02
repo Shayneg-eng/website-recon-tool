@@ -1,0 +1,153 @@
+{
+  "target": {
+    "domain": "d3b8tkiw5mrlft.cloudfront.net",
+    "base_url": "https://d3b8tkiw5mrlft.cloudfront.net"
+  },
+  "recon": {
+    "dns": {
+      "A": [
+        "108.138.61.139",
+        "108.138.61.211",
+        "108.138.61.228",
+        "108.138.61.48"
+      ],
+      "AAAA": [],
+      "MX": [],
+      "NS": [
+        "ns-1159.awsdns-16.org.",
+        "ns-1888.awsdns-44.co.uk.",
+        "ns-357.awsdns-44.com.",
+        "ns-925.awsdns-51.net."
+      ],
+      "TXT": [],
+      "SOA": [
+        "ns-357.awsdns-44.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+      ],
+      "CAA": [],
+      "_spf_present": false,
+      "DMARC": [],
+      "_dmarc_policy": null,
+      "_dmarc_has_rua": false
+    },
+    "whois": {
+      "error": "No match for \"D3B8TKIW5MRLFT.CLOUDFRONT.NET\".\r\n>>> Last update of whois database: 2026-10-01T02:44:28Z <<<\r\n\r\nNOTICE: The expiration date displayed in this record is the date the\r\nregistrar's sponsorship of the domain name registration in the registry is\r\ncurrently set to expire. This date does not necessarily reflect the expiration\r\ndate of the domain name registrant's agreement with the sponsoring\r\nregistrar.  Users may consult the sponsoring registrar's Whois database to\r\nview the registrar's reported date of expiration for this registration.\r\n\r\nTERMS OF USE: You are not authorized to access or query our Whois\r\ndatabase through the use of electronic processes that are high-volume and\r\nautomated except as reasonably necessary to register domain names or\r\nmodify existing registrations; the Data in VeriSign Global Registry\r\nServices' (\"VeriSign\") Whois database is provided by VeriSign for\r\ninformation purposes only, and to assist persons in obtaining information\r\nabout or related to a domain name registration record. VeriSign does not\r\nguarantee its accuracy. By submitting a Whois query, you agree to abide\r\nby the following terms of use: You agree that you may use this Data only\r\nfor lawful purposes and that under no circumstances will you use this Data\r\nto: (1) allow, enable, or otherwise support the transmission of mass\r\nunsolicited, commercial advertising or solicitations via e-mail, telephone,\r\nor facsimile; or (2) enable high volume, automated, electronic processes\r\nthat apply to VeriSign (or its computer systems). The compilation,\r\nrepackaging, dissemination or other use of this Data is expressly\r\nprohibited without the prior written consent of VeriSign. You agree not to\r\nuse electronic processes that are automated and high-volume to access or\r\nquery the Whois database except as reasonably necessary to register\r\ndomain names or modify existing registrations. VeriSign reserves the right\r\nto restrict your access to the Whois database in its sole discretion to ensure\r\noperational stability.  VeriSign may restrict or terminate your access to the\r\nWhois database for failure to abide by these terms of use. VeriSign\r\nreserves the right to modify these terms at any time.\r\n\r\nThe Registry database contains ONLY .COM, .NET, .EDU domains and\r\nRegistrars.\r\n"
+    },
+    "subdomains": {
+      "source": "crt.sh (certificate transparency)",
+      "count": 0,
+      "subdomains": [],
+      "error": "crt.sh returned HTTP 502"
+    },
+    "tech_fingerprint": {
+      "headers_of_interest": {
+        "server_banner": "AmazonS3",
+        "via_proxy": "1.1 e268ddb03ed9480c5c602c27323a81ea.cloudfront.net (CloudFront)"
+      },
+      "detected": [],
+      "cookies": [],
+      "software_versions": [],
+      "error": null,
+      "final_url": "https://d3b8tkiw5mrlft.cloudfront.net",
+      "status": 200
+    },
+    "robots_sitemap": {
+      "robots_txt": {
+        "found": true,
+        "disallowed_paths": [],
+        "sitemaps": []
+      },
+      "sitemap_xml": {
+        "found": true,
+        "url_count": 0,
+        "sample_urls": []
+      }
+    }
+  },
+  "discovery": {
+    "wordlist_used": "wordlists/raft_small_directories.txt",
+    "total_paths_tested": 40230,
+    "elapsed_seconds": 805.9,
+    "wildcard_baseline": {
+      "status": 200,
+      "content_length": 963
+    },
+    "filtered_as_wildcard_noise": 40226,
+    "findings_count": 1,
+    "findings": [
+      {
+        "url": "https://d3b8tkiw5mrlft.cloudfront.net/soap",
+        "status": 200,
+        "content_length": null,
+        "redirect_to": null
+      }
+    ]
+  },
+  "vulnscan": {
+    "security_headers": {
+      "present": {
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://maazifier.auth.us-east-1.amazoncognito.com wss://0a0dkjc195.execute-api.us-east-1.amazonaws.com/$default https://fp8pxq41sd.execute-api.us-east-1.amazonaws.com/ https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      },
+      "missing": [
+        {
+          "header": "Strict-Transport-Security",
+          "why_it_matters": "Protects against SSL-stripping / downgrade attacks."
+        },
+        {
+          "header": "Permissions-Policy",
+          "why_it_matters": "Restricts access to browser features/APIs."
+        }
+      ],
+      "error": null,
+      "insecure_cookies": []
+    },
+    "tls": {
+      "error": null,
+      "protocol": "TLSv1.3",
+      "cipher": "TLS_AES_128_GCM_SHA256",
+      "expires": "2027-03-10T23:59:59",
+      "days_until_expiry": 160,
+      "expiry_warning": false,
+      "issuer": "Amazon",
+      "subject_alt_names": [
+        "*.cloudfront.net",
+        "cloudfront.net"
+      ],
+      "weak_protocol": false
+    },
+    "http_methods": {
+      "checked": [
+        {
+          "target": "https://d3b8tkiw5mrlft.cloudfront.net",
+          "allowed_methods": [],
+          "dangerous_methods": [],
+          "options_error": null,
+          "webdav_listing_status": 200,
+          "webdav_enabled": false,
+          "propfind_error": null,
+          "trace_echo": null
+        }
+      ]
+    },
+    "iis_shortname": {
+      "tested": true,
+      "vulnerable_pattern_status": 200,
+      "control_pattern_status": 200,
+      "signature_observed": false,
+      "error": null,
+      "note": "Heuristic only - a positive signal needs manual confirmation with a dedicated IIS shortname tool. This module does not reconstruct actual filenames."
+    },
+    "sensitive_files": {
+      "wordlist_used": "wordlists/sensitive_files.txt",
+      "total_paths_tested": 50,
+      "wildcard_baseline": {
+        "status": 200,
+        "content_length": 963
+      },
+      "exposed_count": 0,
+      "exposed_files": []
+    }
+  }
+}
